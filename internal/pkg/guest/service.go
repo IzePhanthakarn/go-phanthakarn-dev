@@ -1,8 +1,6 @@
 package guest
 
 import (
-	"fmt"
-
 	"github.com/IzePhanthakarn/go-phanthakarn-dev/internal/core/bcrypt"
 	"github.com/IzePhanthakarn/go-phanthakarn-dev/internal/core/context"
 	"github.com/IzePhanthakarn/go-phanthakarn-dev/internal/core/utils"
@@ -98,16 +96,13 @@ func (s *service) Register(c *context.Context, f *RegisterForm) (*models.Token, 
 
 // Login login
 func (s *service) Login(c *context.Context, f *LoginForm) (*models.Token, error) {
-	fmt.Println("ize")
 	u, _ := s.userRepo.FindOneByEmail(c.GetDatabase(), f.Username)
-	fmt.Println("ize1")
 	if u == nil {
 		u, _ = s.userRepo.FindOneByCitizenID(c.GetDatabase(), f.Username)
 		if u == nil {
 			return nil, s.result.Common.InvalidUsername
 		}
 	}
-	fmt.Println("ize2")
 
 	if !bcrypt.ComparePassword(u.PasswordHash, f.Password) {
 		return nil, s.result.Common.InvalidPassword
@@ -118,7 +113,6 @@ func (s *service) Login(c *context.Context, f *LoginForm) (*models.Token, error)
 		logrus.Error(err)
 		return nil, err
 	}
-	fmt.Println("ize3")
 	return token, nil
 }
 func (s *service) ResetPassword(c *context.Context, f *ResetPasswordForm) error {

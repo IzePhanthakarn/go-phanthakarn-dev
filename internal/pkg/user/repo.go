@@ -1,8 +1,6 @@
 package user
 
 import (
-	"fmt"
-
 	"github.com/IzePhanthakarn/go-phanthakarn-dev/internal/models"
 	"github.com/IzePhanthakarn/go-phanthakarn-dev/internal/repositories"
 	"gorm.io/gorm"
@@ -79,18 +77,12 @@ func (r *repository) FindAll(db *gorm.DB, f *GetAllForm) (*models.Page, error) {
 
 // FindOneByCitizenID find user by citizen id
 func (r *repository) FindOneByEmail(db *gorm.DB, email string) (*models.User, error) {
-	fmt.Println("eiei")
 	user := &models.User{}
-	fmt.Println("eiei2")
-	// db = preload(db)
-	fmt.Println("eiei3")
+	db = preload(db)
 	err := r.FindOneObjectByField(db, "email", email, user)
-	fmt.Println("eiei4")
 	if err != nil {
-		fmt.Println("eiei5")
 		return nil, err
 	}
-	fmt.Println("eiei6")
 	return user, nil
 }
 
