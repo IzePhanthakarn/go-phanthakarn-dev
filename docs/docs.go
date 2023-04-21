@@ -58,6 +58,23 @@ const docTemplate = `{
                         "in": "query"
                     },
                     {
+                        "enum": [
+                            1,
+                            10,
+                            100,
+                            1000
+                        ],
+                        "type": "integer",
+                        "x-enum-varnames": [
+                            "CustomerRole",
+                            "OfficerRole",
+                            "AdminRole",
+                            "SuperAdminRole"
+                        ],
+                        "name": "role",
+                        "in": "query"
+                    },
+                    {
                         "type": "integer",
                         "name": "size",
                         "in": "query"
@@ -742,6 +759,8 @@ var SwaggerInfo = &swag.Spec{
 	Description:      "",
 	InfoInstanceName: "swagger",
 	SwaggerTemplate:  docTemplate,
+	LeftDelim:        "{{",
+	RightDelim:       "}}",
 }
 
 func init() {
