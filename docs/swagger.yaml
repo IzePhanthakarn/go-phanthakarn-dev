@@ -1,0 +1,470 @@
+definitions:
+  guest.LoginForm:
+    properties:
+      password:
+        type: string
+      username:
+        type: string
+    type: object
+  guest.RegisterForm:
+    properties:
+      birthday:
+        type: string
+      citizen_id:
+        type: string
+      email:
+        type: string
+      first_name:
+        type: string
+      last_name:
+        type: string
+      password:
+        type: string
+      phone_number:
+        type: string
+      prefix:
+        type: string
+    type: object
+  guest.ResetPasswordForm:
+    properties:
+      birthday:
+        type: string
+      citizen_id:
+        type: string
+      password:
+        type: string
+      phone_number:
+        type: string
+    type: object
+  models.Message:
+    properties:
+      code:
+        type: integer
+      message:
+        type: string
+    type: object
+  models.Page:
+    properties:
+      entities: {}
+      page_information:
+        $ref: '#/definitions/models.PageInformation'
+    type: object
+  models.PageInformation:
+    properties:
+      count:
+        type: integer
+      last_page:
+        type: integer
+      page:
+        type: integer
+      size:
+        type: integer
+    type: object
+  models.Role:
+    enum:
+    - 1
+    - 10
+    - 100
+    - 1000
+    type: integer
+    x-enum-varnames:
+    - CustomerRole
+    - OfficerRole
+    - AdminRole
+    - SuperAdminRole
+  models.Token:
+    properties:
+      created_at:
+        type: string
+      device_token:
+        type: string
+      id:
+        type: integer
+      refresh_token:
+        type: string
+      token:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  models.User:
+    properties:
+      birthday:
+        type: string
+      citizen_id:
+        type: string
+      created_at:
+        type: string
+      email:
+        type: string
+      first_name:
+        type: string
+      id:
+        type: integer
+      last_name:
+        type: string
+      phone_number:
+        type: string
+      prefix:
+        type: string
+      roles:
+        items:
+          $ref: '#/definitions/models.UserRole'
+        type: array
+      updated_at:
+        type: string
+    type: object
+  models.UserRole:
+    properties:
+      created_at:
+        type: string
+      id:
+        type: integer
+      role:
+        $ref: '#/definitions/models.Role'
+      updated_at:
+        type: string
+    type: object
+  token.RefeshTokenForm:
+    properties:
+      refresh_token:
+        example: ABCDEF1234
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /a/users:
+    get:
+      consumes:
+      - application/json
+      description: GetAll
+      parameters:
+      - default: th
+        description: (en, th)
+        in: header
+        name: Accept-Language
+        type: string
+      - in: query
+        name: page
+        type: integer
+      - in: query
+        name: query
+        type: string
+      - in: query
+        name: reverse
+        type: boolean
+      - in: query
+        name: size
+        type: integer
+      - in: query
+        name: sort
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Page'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.Message'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/models.Message'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/models.Message'
+        "410":
+          description: Gone
+          schema:
+            $ref: '#/definitions/models.Message'
+      security:
+      - ApiKeyAuth: []
+      summary: GetAll
+      tags:
+      - Users
+  /c/guest/login:
+    post:
+      consumes:
+      - application/json
+      description: Login
+      parameters:
+      - default: th
+        description: (en, th)
+        in: header
+        name: Accept-Language
+        type: string
+      - description: body for login
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/guest.LoginForm'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Token'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.Message'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/models.Message'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/models.Message'
+        "410":
+          description: Gone
+          schema:
+            $ref: '#/definitions/models.Message'
+      summary: Login
+      tags:
+      - Authentication
+  /c/guest/refresh-token:
+    post:
+      consumes:
+      - application/json
+      description: refresh token
+      parameters:
+      - default: th
+        description: (en, th)
+        in: header
+        name: Accept-Language
+        type: string
+      - description: body for refresh token
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/token.RefeshTokenForm'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Token'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.Message'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/models.Message'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/models.Message'
+        "410":
+          description: Gone
+          schema:
+            $ref: '#/definitions/models.Message'
+      summary: refresh token
+      tags:
+      - Authentication
+  /c/guest/register:
+    post:
+      consumes:
+      - application/json
+      description: Register
+      parameters:
+      - default: th
+        description: (en, th)
+        in: header
+        name: Accept-Language
+        type: string
+      - description: body for register
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/guest.RegisterForm'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Token'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.Message'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/models.Message'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/models.Message'
+        "410":
+          description: Gone
+          schema:
+            $ref: '#/definitions/models.Message'
+      summary: Register
+      tags:
+      - Authentication
+  /c/guest/reset-password:
+    post:
+      consumes:
+      - application/json
+      description: Reset password
+      parameters:
+      - default: th
+        description: (en, th)
+        in: header
+        name: Accept-Language
+        type: string
+      - description: body for reset password
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/guest.ResetPasswordForm'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Message'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.Message'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/models.Message'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/models.Message'
+        "410":
+          description: Gone
+          schema:
+            $ref: '#/definitions/models.Message'
+      summary: Reset password
+      tags:
+      - Authentication
+  /c/me:
+    get:
+      consumes:
+      - application/json
+      description: get me
+      parameters:
+      - default: th
+        description: (en, th)
+        in: header
+        name: Accept-Language
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.User'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.Message'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/models.Message'
+        "410":
+          description: Gone
+          schema:
+            $ref: '#/definitions/models.Message'
+      security:
+      - ApiKeyAuth: []
+      summary: get me
+      tags:
+      - Me
+  /c/me/logout:
+    post:
+      consumes:
+      - application/json
+      description: logout
+      parameters:
+      - default: th
+        description: (en, th)
+        in: header
+        name: Accept-Language
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Message'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.Message'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/models.Message'
+        "410":
+          description: Gone
+          schema:
+            $ref: '#/definitions/models.Message'
+      security:
+      - ApiKeyAuth: []
+      summary: logout
+      tags:
+      - Me
+  /health-check:
+    get:
+      consumes:
+      - application/json
+      description: health check
+      parameters:
+      - default: th
+        description: (en, th)
+        in: header
+        name: Accept-Language
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Message'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.Message'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/models.Message'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/models.Message'
+        "410":
+          description: Gone
+          schema:
+            $ref: '#/definitions/models.Message'
+      summary: health check
+      tags:
+      - Payment
+swagger: "2.0"

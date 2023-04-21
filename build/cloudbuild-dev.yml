@@ -1,0 +1,32 @@
+steps:
+  # Build the container image
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-f', 'build/Dockerfile', '-t', 'asia.gcr.io/$PROJECT_ID/go-boilerplate:develop', '.']
+
+  # Push the container image to Container Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'asia.gcr.io/$PROJECT_ID/go-boilerplate:develop']
+
+  # Deploy container image to Cloud Run
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args:
+      - 'run'
+      - 'deploy'
+      - 'go-boilerplate-dev'
+      - '--image'
+      - 'asia.gcr.io/$PROJECT_ID/go-boilerplate:develop'
+      - '--region'
+      - 'asia-southeast1'
+      - '--set-env-vars'
+      - 'environment=dev'
+      - '--platform'
+      - 'managed'
+      - '--port'
+      - '8000'
+      - '--allow-unauthenticated'
+    env:
+      - 'CLOUDSDK_CORE_PROJECT='
+      - 'CLOUDSDK_COMPUTE_ZONE='
+images:
+    - 'asia.gcr.io/$PROJECT_ID/go-boilerplate:develop'

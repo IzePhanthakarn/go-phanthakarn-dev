@@ -1,0 +1,32 @@
+APP:
+  HOST: "https://"
+  WEB_BASE_URL: "/"
+  API_BASE_URL: "/api"
+  RELEASE: false
+  PORT: 8000
+
+DATABASE:
+  HOST: "{DB HOST}"
+  PORT: 5432
+  USERNAME: "{DB USERNAME}"
+  PASSWORD: "{DB PASSWORD}"
+  NAME: "{DB NAME}"
+
+HTTP_SERVER:
+  READ_TIMEOUT: 5s
+  WRITE_TIMEOUT: 10s
+  IDLE_TIMEOUT: 120s
+
+SWAGGER:
+  TITLE: "Go Boilerplate Docs"
+  DESCRIPTION: "Go Boilerplate API"
+  VERSION: "1.0"
+  HOST: "localhost:8000"
+  BASE_URL: "/api/v1"
+  ENABLE: true
+
+JWT:
+  ACCESS_EXPIRE_TIME: 24h0m0s
+  REFRESH_EXPIRE_TIME: 168h0m0s
+  PRIVATE_KEY_PATH: "./configs/jwt/private-key.pem"
+  PUBLIC_KEY_PATH: "./configs/jwt/public-key.pem"
