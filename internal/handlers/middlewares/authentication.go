@@ -1,7 +1,7 @@
 package middlewares
 
 import (
-	"github.com/IzePhanthakarn/go-boilerplate/internal/core/context"
+	"github.com/IzePhanthakarn/go-phanthakarn-dev/internal/core/context"
 	"github.com/gofiber/fiber/v2"
 )
 

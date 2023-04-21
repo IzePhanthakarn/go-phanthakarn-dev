@@ -1,8 +1,8 @@
 package user
 
 import (
-	"github.com/IzePhanthakarn/go-boilerplate/internal/core/config"
-	"github.com/IzePhanthakarn/go-boilerplate/internal/handlers"
+	"github.com/IzePhanthakarn/go-phanthakarn-dev/internal/core/config"
+	"github.com/IzePhanthakarn/go-phanthakarn-dev/internal/handlers"
 	"github.com/gofiber/fiber/v2"
 )
 

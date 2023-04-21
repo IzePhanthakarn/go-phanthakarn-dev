@@ -1,8 +1,8 @@
 package token
 
 import (
-	"github.com/IzePhanthakarn/go-boilerplate/internal/models"
-	"github.com/IzePhanthakarn/go-boilerplate/internal/repositories"
+	"github.com/IzePhanthakarn/go-phanthakarn-dev/internal/models"
+	"github.com/IzePhanthakarn/go-phanthakarn-dev/internal/repositories"
 	"gorm.io/gorm"
 )
 

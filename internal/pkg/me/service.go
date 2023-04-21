@@ -3,14 +3,14 @@ package me
 import (
 	"fmt"
 
-	"github.com/IzePhanthakarn/go-boilerplate/internal/core/context"
+	"github.com/IzePhanthakarn/go-phanthakarn-dev/internal/core/context"
 	"github.com/sirupsen/logrus"
 
-	"github.com/IzePhanthakarn/go-boilerplate/internal/core/config"
-	"github.com/IzePhanthakarn/go-boilerplate/internal/models"
-	"github.com/IzePhanthakarn/go-boilerplate/internal/pkg/client"
-	"github.com/IzePhanthakarn/go-boilerplate/internal/pkg/token"
-	"github.com/IzePhanthakarn/go-boilerplate/internal/pkg/user"
+	"github.com/IzePhanthakarn/go-phanthakarn-dev/internal/core/config"
+	"github.com/IzePhanthakarn/go-phanthakarn-dev/internal/models"
+	"github.com/IzePhanthakarn/go-phanthakarn-dev/internal/pkg/client"
+	"github.com/IzePhanthakarn/go-phanthakarn-dev/internal/pkg/token"
+	"github.com/IzePhanthakarn/go-phanthakarn-dev/internal/pkg/user"
 )
 
 // ServiceInterface this is a user service interface

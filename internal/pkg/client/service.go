@@ -1,7 +1,7 @@
 package client
 
 import (
-	"github.com/IzePhanthakarn/go-boilerplate/internal/core/config"
+	"github.com/IzePhanthakarn/go-phanthakarn-dev/internal/core/config"
 
 	"github.com/imroc/req"
 	"github.com/sirupsen/logrus"

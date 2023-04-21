@@ -8,7 +8,7 @@ import (
 	"math"
 	"time"
 
-	"github.com/IzePhanthakarn/go-boilerplate/internal/models"
+	"github.com/IzePhanthakarn/go-phanthakarn-dev/internal/models"
 	"gorm.io/gorm"
 	"gorm.io/gorm/clause"
 )

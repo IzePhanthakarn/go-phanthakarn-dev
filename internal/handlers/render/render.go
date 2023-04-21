@@ -1,7 +1,7 @@
 package render
 
 import (
-	"github.com/IzePhanthakarn/go-boilerplate/internal/core/config"
+	"github.com/IzePhanthakarn/go-phanthakarn-dev/internal/core/config"
 
 	"github.com/gofiber/fiber/v2"
 )

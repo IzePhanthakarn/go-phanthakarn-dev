@@ -6,8 +6,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/IzePhanthakarn/go-boilerplate/internal/core/config"
-	"github.com/IzePhanthakarn/go-boilerplate/internal/core/database"
+	"github.com/IzePhanthakarn/go-phanthakarn-dev/internal/core/config"
+	"github.com/IzePhanthakarn/go-phanthakarn-dev/internal/core/database"
 	"github.com/gofiber/fiber/v2"
 	jwt "github.com/golang-jwt/jwt/v4"
 	"gorm.io/gorm"

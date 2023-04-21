@@ -1,4 +1,4 @@
-module github.com/IzePhanthakarn/go-boilerplate
+module github.com/IzePhanthakarn/go-phanthakarn-dev
 
 go 1.20
 

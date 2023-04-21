@@ -8,10 +8,10 @@ import (
 	stackdriver "github.com/TV4/logrus-stackdriver-formatter"
 	"github.com/sirupsen/logrus"
 
-	"github.com/IzePhanthakarn/go-boilerplate/docs"
-	"github.com/IzePhanthakarn/go-boilerplate/internal/core/config"
-	"github.com/IzePhanthakarn/go-boilerplate/internal/core/utils"
-	"github.com/IzePhanthakarn/go-boilerplate/internal/handlers/routes"
+	"github.com/IzePhanthakarn/go-phanthakarn-dev/docs"
+	"github.com/IzePhanthakarn/go-phanthakarn-dev/internal/core/config"
+	"github.com/IzePhanthakarn/go-phanthakarn-dev/internal/core/utils"
+	"github.com/IzePhanthakarn/go-phanthakarn-dev/internal/handlers/routes"
 )
 
 func main() {

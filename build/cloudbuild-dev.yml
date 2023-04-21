@@ -1,11 +1,11 @@
 steps:
   # Build the container image
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-f', 'build/Dockerfile', '-t', 'asia.gcr.io/$PROJECT_ID/go-boilerplate:develop', '.']
+    args: ['build', '-f', 'build/Dockerfile', '-t', 'asia.gcr.io/$PROJECT_ID/go-phanthakarn-dev:develop', '.']
 
   # Push the container image to Container Registry
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'asia.gcr.io/$PROJECT_ID/go-boilerplate:develop']
+    args: ['push', 'asia.gcr.io/$PROJECT_ID/go-phanthakarn-dev:develop']
 
   # Deploy container image to Cloud Run
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
@@ -13,9 +13,9 @@ steps:
     args:
       - 'run'
       - 'deploy'
-      - 'go-boilerplate-dev'
+      - 'go-phanthakarn-dev-dev'
       - '--image'
-      - 'asia.gcr.io/$PROJECT_ID/go-boilerplate:develop'
+      - 'asia.gcr.io/$PROJECT_ID/go-phanthakarn-dev:develop'
       - '--region'
       - 'asia-southeast1'
       - '--set-env-vars'
@@ -29,4 +29,4 @@ steps:
       - 'CLOUDSDK_CORE_PROJECT='
       - 'CLOUDSDK_COMPUTE_ZONE='
 images:
-    - 'asia.gcr.io/$PROJECT_ID/go-boilerplate:develop'
+    - 'asia.gcr.io/$PROJECT_ID/go-phanthakarn-dev:develop'

@@ -31,4 +31,4 @@ Contributions are always welcome! If you want to contribute to this project, ple
 5. Create a pull request and describe your changes in detail.
 
 ### License
-This project is licensed under the MIT License - see the [LICENSE](https://github.com/IzePhanthakarn/go-boilerplate/blob/main/LICENSE "LICENSE") file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/IzePhanthakarn/go-phanthakarn-dev/blob/main/LICENSE "LICENSE") file for details.

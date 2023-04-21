@@ -7,8 +7,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/IzePhanthakarn/go-boilerplate/internal/core/config"
-	"github.com/IzePhanthakarn/go-boilerplate/internal/core/context"
+	"github.com/IzePhanthakarn/go-phanthakarn-dev/internal/core/config"
+	"github.com/IzePhanthakarn/go-phanthakarn-dev/internal/core/context"
 	"github.com/tidwall/gjson"
 	"github.com/tidwall/sjson"
 	"github.com/valyala/fasthttp"

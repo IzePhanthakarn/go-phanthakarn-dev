@@ -1,11 +1,11 @@
 package user
 
 import (
-	"github.com/IzePhanthakarn/go-boilerplate/internal/core/context"
+	"github.com/IzePhanthakarn/go-phanthakarn-dev/internal/core/context"
 
-	"github.com/IzePhanthakarn/go-boilerplate/internal/core/config"
-	"github.com/IzePhanthakarn/go-boilerplate/internal/models"
-	"github.com/IzePhanthakarn/go-boilerplate/internal/pkg/client"
+	"github.com/IzePhanthakarn/go-phanthakarn-dev/internal/core/config"
+	"github.com/IzePhanthakarn/go-phanthakarn-dev/internal/models"
+	"github.com/IzePhanthakarn/go-phanthakarn-dev/internal/pkg/client"
 )
 
 // ServiceInterface this is a user service interface

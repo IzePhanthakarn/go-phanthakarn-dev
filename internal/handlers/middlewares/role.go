@@ -1,9 +1,9 @@
 package middlewares
 
 import (
-	"github.com/IzePhanthakarn/go-boilerplate/internal/core/context"
-	"github.com/IzePhanthakarn/go-boilerplate/internal/handlers/render"
-	"github.com/IzePhanthakarn/go-boilerplate/internal/models"
+	"github.com/IzePhanthakarn/go-phanthakarn-dev/internal/core/context"
+	"github.com/IzePhanthakarn/go-phanthakarn-dev/internal/handlers/render"
+	"github.com/IzePhanthakarn/go-phanthakarn-dev/internal/models"
 	"github.com/gofiber/fiber/v2"
 )
 

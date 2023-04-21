@@ -7,10 +7,10 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/IzePhanthakarn/go-boilerplate/internal/core/config"
-	"github.com/IzePhanthakarn/go-boilerplate/internal/core/context"
-	"github.com/IzePhanthakarn/go-boilerplate/internal/core/utils"
-	"github.com/IzePhanthakarn/go-boilerplate/internal/models"
+	"github.com/IzePhanthakarn/go-phanthakarn-dev/internal/core/config"
+	"github.com/IzePhanthakarn/go-phanthakarn-dev/internal/core/context"
+	"github.com/IzePhanthakarn/go-phanthakarn-dev/internal/core/utils"
+	"github.com/IzePhanthakarn/go-phanthakarn-dev/internal/models"
 	"github.com/golang-jwt/jwt"
 	"github.com/sirupsen/logrus"
 )

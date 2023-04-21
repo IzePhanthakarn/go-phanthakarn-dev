@@ -1,6 +1,6 @@
 package user
 
-import "github.com/IzePhanthakarn/go-boilerplate/internal/models"
+import "github.com/IzePhanthakarn/go-phanthakarn-dev/internal/models"
 
 type GetAllForm struct {
 	models.PageForm

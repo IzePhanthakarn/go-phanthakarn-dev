@@ -1,9 +1,9 @@
 package guest
 
 import (
-	"github.com/IzePhanthakarn/go-boilerplate/internal/core/config"
-	"github.com/IzePhanthakarn/go-boilerplate/internal/handlers"
-	"github.com/IzePhanthakarn/go-boilerplate/internal/pkg/token"
+	"github.com/IzePhanthakarn/go-phanthakarn-dev/internal/core/config"
+	"github.com/IzePhanthakarn/go-phanthakarn-dev/internal/handlers"
+	"github.com/IzePhanthakarn/go-phanthakarn-dev/internal/pkg/token"
 	"github.com/gofiber/fiber/v2"
 )
 
